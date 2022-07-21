@@ -42,7 +42,7 @@ In this example the integer roles will be used to store up to 3 values. To do th
 possible value.
 
 It's required that each value you make available uses a single bit. The [paragraph 'Counting in binary' in an article about Binary numbers on Wikipedia](https://en.wikipedia.org/wiki/Binary_number#Counting_in_binary)
-can help you understand how this works and how multiple values can be used. For quick access values 1, 2, 4, 8, 16, 32, 64, ... can be used.
+can help you understand how this works and how multiple values can be used.
 
 ## Usage
 
