@@ -41,18 +41,27 @@ RSpec.shared_examples "user with roles" do |parameters|
     it 'should prive a list of current roles' do
       expect(admin.roles).to eql 1
       expect(admin.role_list).to eql %i[admin]
+      expect(admin.public_send("#{prefix}admin#{suffix}")).to be_truthy
+      expect(admin.public_send("#{prefix}manager#{suffix}")).to be_falsy
+      expect(admin.public_send("#{prefix}supervisor#{suffix}")).to be_falsy
       expect(admin.public_send("#{prefix}admin#{suffix}?")).to be_truthy
       expect(admin.public_send("#{prefix}manager#{suffix}?")).to be_falsy
       expect(admin.public_send("#{prefix}supervisor#{suffix}?")).to be_falsy
 
       expect(admin_manager.roles).to eql 3
       expect(admin_manager.role_list).to eql %i[admin manager]
+      expect(admin_manager.public_send("#{prefix}admin#{suffix}")).to be_truthy
+      expect(admin_manager.public_send("#{prefix}manager#{suffix}")).to be_truthy
+      expect(admin_manager.public_send("#{prefix}supervisor#{suffix}")).to be_falsy
       expect(admin_manager.public_send("#{prefix}admin#{suffix}?")).to be_truthy
       expect(admin_manager.public_send("#{prefix}manager#{suffix}?")).to be_truthy
       expect(admin_manager.public_send("#{prefix}supervisor#{suffix}?")).to be_falsy
 
       expect(supervisor.roles).to eql 4
       expect(supervisor.role_list).to eql %i[supervisor]
+      expect(supervisor.public_send("#{prefix}admin#{suffix}")).to be_falsy
+      expect(supervisor.public_send("#{prefix}manager#{suffix}")).to be_falsy
+      expect(supervisor.public_send("#{prefix}supervisor#{suffix}")).to be_truthy
       expect(supervisor.public_send("#{prefix}admin#{suffix}?")).to be_falsy
       expect(supervisor.public_send("#{prefix}manager#{suffix}?")).to be_falsy
       expect(supervisor.public_send("#{prefix}supervisor#{suffix}?")).to be_truthy

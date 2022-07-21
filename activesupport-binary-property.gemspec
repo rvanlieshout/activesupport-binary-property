@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "activesupport-binary-property"
-  s.version     = "0.0.1"
+  s.version     = "0.0.2"
   s.summary     = "ActiveSupport::Concern that provides an enum-like functionality for multiple values"
   s.description = "ActiveSupport::Concern that provides an enum-like functionality that for when multiple values are allowed in a method named `has_binary_property`"
   s.authors     = ["Rene van Lieshout"]

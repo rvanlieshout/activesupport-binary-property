@@ -98,6 +98,10 @@ module BinaryProperty
           )                                                       #   )
         }                                                         # }
 
+        define_method("#{attribute_name}") do                     # def request_administrative_changes
+          send("#{attribute.to_s.singularize}?", key)             #   permission_grant?(:request_administrative_changes)
+        end                                                       # end
+
         define_method("#{attribute_name}?") do                    # def request_administrative_changes?
           send("#{attribute.to_s.singularize}?", key)             #   permission_grant?(:request_administrative_changes)
         end                                                       # end

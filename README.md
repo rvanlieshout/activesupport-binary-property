@@ -36,6 +36,14 @@ And configure a property:
 
 Optinally add _prefix or _suffix similar to how enum works
 
+### Binary
+
+In this example the integer roles will be used to store up to 3 values. To do that it uses a single bit for each
+possible value.
+
+It's required that each value you make available uses a single bit. The [paragraph 'Counting in binary' in an article about Binary numbers on Wikipedia](https://en.wikipedia.org/wiki/Binary_number#Counting_in_binary)
+can help you understand how this works and how multiple values can be used. For quick access values 1, 2, 4, 8, 16, 32, 64, ... can be used.
+
 ## Usage
 
 Using the example above some methods are added to the User
@@ -72,10 +80,16 @@ Get details about the roles:
 003:0> user.role_list
 => [:admin]
 
-004:0> user.admin?
+004:0> user.admin
 => true
 
-005:0> user.manager?
+005:0> user.manager
+=> false
+
+006:0> user.admin?
+=> true
+
+007:0> user.manager?
 => false
 ```
 
